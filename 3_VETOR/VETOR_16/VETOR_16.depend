@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1557324326 source:c:\users\rennan damião\dropbox\bsi\algoritimo\exercícios concluidos\3_vetor\vetor_16\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+

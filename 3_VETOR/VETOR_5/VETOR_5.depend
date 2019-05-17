@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1555016145 source:c:\users\rennan damião\desktop\vetor_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

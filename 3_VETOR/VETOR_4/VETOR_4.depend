@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554909227 source:c:\users\aluno\desktop\vetor\vetor_4\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

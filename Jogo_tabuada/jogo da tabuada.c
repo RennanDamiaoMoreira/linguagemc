@@ -61,6 +61,7 @@ int nivel3 ()
 
     printf("\n\n_____________________\nQue pena você errou a resposta certa e %d\nvocê acertou %d respostas\n",resultado,cont);
     system("pause");
+
 }
 int nivel1 ()
 {
