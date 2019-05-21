@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <time.h>
 #include <locale.h>
-/*feito por Rennan Damião Moreira
-o jogo se baseia em treinar os cálculos matemático
-do usuário, separado em 3 níveis soma,soma subtração,soma subtração multiplicação.
+/*feito por Rennan DamiÃ£o Moreira
+o jogo se baseia em treinar os cÃ¡lculos matemÃ¡tico
+do usuÃ¡rio, separado em 4 nÃ­veis soma,soma subtraÃ§Ã£o,soma subtraÃ§Ã£o multiplicaÃ§Ã£o e soma subtraÃ§Ã£o multiplicaÃ§Ã£o divisÃ£o
 */
 void wait ( int seconds )
 {
@@ -59,7 +59,7 @@ int nivel3 ()
     }
     while(resposta==resultado);
 
-    printf("\n\n_____________________\nQue pena você errou a resposta certa e %d\nvocê acertou %d respostas\n",resultado,cont);
+    printf("\n\n_____________________\nQue pena vocÃª errou a resposta certa e %d\nvocÃª acertou %d respostas\n",resultado,cont);
     system("pause");
 
 }
@@ -86,7 +86,7 @@ int nivel1 ()
     }
     while(resposta==resultado);
 
-    printf("\n\n_____________________\nQue pena você errou a resposta certa e %d\nvocê acertou %d respostas\n",resultado,cont);
+    printf("\n\n_____________________\nQue pena vocÃª errou a resposta certa e %d\nvocÃª acertou %d respostas\n",resultado,cont);
     system("pause");
     return 0;
 }
@@ -132,7 +132,82 @@ int nivel2 ()
     }
     while(resposta==resultado);
 
-    printf("\n\n_____________________\nQue pena você errou a resposta certa e %d\nvocê acertou %d respostas\n",resultado,cont);
+    printf("\n\n_____________________\nQue pena vocÃª errou a resposta certa e %d\nvocÃª acertou %d respostas\n",resultado,cont);
+    system("pause");
+}
+int nivel4 ()
+{
+    setlocale(LC_ALL,"");
+    int resposta,var1,var2,cont=0,operacao,resultado,condicao;
+    srand(time(NULL));
+    do
+    {
+        system("cls");
+        var1=rand()%11;
+        var2=rand()%11;
+        operacao=rand ()%4;
+        condicao=0;
+        switch (operacao)
+        {
+        case 0:
+            printf("%d+%d\n",var1,var2);
+            scanf("%d",&resposta);
+            resultado=var1+var2;
+            break;
+        case 1:
+            if (var1>var2)
+            {
+                printf("%d-%d\n",var1,var2);
+                scanf("%d",&resposta);
+                resultado=var1-var2;
+                break;
+            }
+            else
+            {
+                printf("%d-%d\n",var2,var1);
+                scanf("%d",&resposta);
+                resultado=var2-var1;
+                break;
+            }
+
+        case 2:
+            printf("%dX%d\n",var1,var2);
+            scanf("%d",&resposta);
+            resultado=var1*var2;
+            break;
+        case 3:
+            if (var1%var2==0)
+            {
+                printf("%d/%d\n",var1,var2);
+                scanf("%d",&resposta);
+                resultado=var1/var2;
+                break;
+            }
+            else
+            {
+                if (var2%var1==0)
+                {
+                    printf("%d/%d\n",var2,var1);
+                    scanf("%d",&resposta);
+                    resultado=var2/var1;
+                    break;
+                }
+                else
+                {
+                    condicao=1;
+                    break;
+                }
+            }
+        }
+
+        if (resposta==resultado)
+        {
+            cont=cont+1;
+        }
+    }
+    while(resposta==resultado||condicao==1);
+
+    printf("\n\n_____________________\nQue pena vocÃª errou a resposta certa e %d\nvocÃª acertou %d respostas\n",resultado,cont);
     system("pause");
 }
 int main()
@@ -146,7 +221,7 @@ int main()
         wait (1);
         system("cls");
     }
-    printf ("digite qual nivel deseja fazer\n1, 2, 3, ");
+    printf ("digite qual nivel deseja fazer\n1, 2, 3,4 ");
     scanf("%c",&resp);
     if (resp=='1')
     {
@@ -163,6 +238,13 @@ int main()
             if (resp=='3')
             {
                 nivel3();
+            }
+            else
+            {
+                if(resp=='4')
+                {
+                    nivel4();
+                }
             }
 
         }
